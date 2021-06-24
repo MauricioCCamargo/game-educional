@@ -1,9 +1,9 @@
-import os
-def colisaoParede(larguraObj,lixoPosiçãoX):
+
+def colisaoparede(largura,altura,lixoposiçãoY,lixoPosiçãoX):
     if lixoPosiçãoX < 0:
-        lixoPosiçãoX = 0
-    if lixoPosiçãoX > 1026 - larguraObj:
-        lixoPosiçãoX = 1026 - larguraObj
-    return lixoPosiçãoX
-def limparLinha():
-    os.system("cls")
+            lixoPosçãoX = 0
+    if lixoPosiçãoX > 1026 - largura:
+            lixoPosiçãoX = 1026 - largura
+    if lixoposiçãoY  > 728 - altura:
+            lixoposicaoY = 0 
+            

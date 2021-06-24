@@ -1,7 +1,7 @@
 import pygame
 import os
 import random
-
+from funcoes import colisaoparede
 
 pygame.init()
 fundo = pygame.image.load("assets/fundo.png")
@@ -16,16 +16,19 @@ lixoverde = pygame.image.load("assets/lixoverde.png")
 papel = pygame.image.load("assets/papel.png") 
 banana = pygame.image.load("assets/banana.png")
 
+lixos = [papel,banana]
+
+
 
 
 def jogo():
     movimentoX = 0
-    lixoPosiçãoX = largura * 0.45
-    lixoPosiçãoY = 0 
+    lixoPosicaoX = largura * 0.45
+    lixoPosicaoY = 0 
     lixoVelocidade = 5
     LarguraPapel = 49
     alturaPapel = 44
-    lixos = [papel,banana]
+    
     
     lixoescolhido = random.choice(lixos)
     while True:
@@ -49,17 +52,20 @@ def jogo():
                 movimentoX = 0         
     
         
-        display.blit(lixoescolhido,(lixoPosiçãoX,lixoPosiçãoY))
-        lixoPosiçãoY = lixoPosiçãoY + lixoVelocidade
-        lixoPosiçãoX = lixoPosiçãoX + movimentoX 
-        if lixoPosiçãoX < 0:
-            lixoPosiçãoX = 0
-        if lixoPosiçãoX > 1026 - LarguraPapel:
-            lixoPosiçãoX = 1026 - LarguraPapel
-        if lixoPosiçãoY  > 728 - alturaPapel:
-            lixoPosiçãoY = 0 
-            lixoescolhido
+        display.blit(lixoescolhido,(lixoPosicaoX,lixoPosicaoY))
+        lixoPosicaoY = lixoPosicaoY + lixoVelocidade
+        lixoPosicaoX = lixoPosicaoX + movimentoX 
+        if lixoPosicaoX < 0:
+            lixoPosicaoX = 0
+        if lixoPosicaoX > 1026 - LarguraPapel:
+            lixoPosicaoX = 1026 - LarguraPapel
+        if lixoPosicaoY  > 728 - alturaPapel:
+            lixoPosicaoY = 0 
+            lixoescolhido = random.choice(lixos)
+
+                
         
+
         pygame.display.update()
 
 jogo()     

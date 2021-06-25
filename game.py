@@ -1,14 +1,9 @@
 import pygame
-import os
+
 import random
-from funcoes import colisaoparede
 import time
-import sys
-nome = input("insira seu nome:")
-email= input("insira seu e-mail:")
-sys.stdout = open("log.txt", "w")
-print(nome, email)
-sys.stdout.close
+
+
 pygame.init()
 fundo = pygame.image.load("assets/fundo.png")
 largura = 1026
